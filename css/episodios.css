@@ -7,18 +7,20 @@
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background-color: var(--color-bg);
+  min-height: 100vh;
+  background: var(--color-bg);
   color: var(--color-text);
   font-family: system-ui, sans-serif;
 }
+
 
 header {
   background: var(--color-primary);
@@ -27,53 +29,72 @@ header {
 }
 
 header h1 {
+  text-align: center;
   color: #1b1b1b;
   margin-bottom: 0.5rem;
-  text-align: center;
 }
 
 nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
   gap: 1rem;
-  list-style: none;
 }
 
 nav a {
-  color: #1b1b1b;
-  font-weight: 600;
   text-decoration: none;
+  font-weight: 600;
+  color: #1b1b1b;
   padding: 0.4rem 0.8rem;
   border-radius: 8px;
 }
 
 nav a:hover {
   background: var(--color-accent);
-  color: #fff;
+  color: white;
 }
 
+
 main {
-  display: grid;
-  justify-items: center; 
-  gap: 1rem;
+  width: 100%;
   padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
 main h2 {
   color: var(--color-accent);
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-main ul {
+
+.episodio-container {
   display: flex;
-  flex-direction: column; 
-  align-items: flex-start; 
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+
+
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-main img {
+
+.episodio-container ul {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.episodio-container img {
+  width: 350px;
+  max-width: 100%;
   border-radius: 12px;
 }
+
 
 footer {
   background: var(--color-primary);
@@ -83,9 +104,27 @@ footer {
 }
 
 footer p {
-  margin: 0;
   color: #1b1b1b;
   font-weight: 600;
+}
+
+
+
+@media (max-width: 768px) {
+  .episodio-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .episodio-container ul {
+    text-align: left;
+    width: 90%;
+  }
+
+  .episodio-container img {
+    width: 80%;
+    max-width: 350px;
+  }
 }
 
 @media (min-width: 480px) {
@@ -95,13 +134,11 @@ footer p {
 }
 
 @media (min-width: 768px) {
-  main { max-width: 54rem; }     
   header h1 { font-size: 2.25rem; }
 }
 
 @media (min-width: 992px) {
-  header { padding: 1.5rem 1.5rem; }
+  header { padding: 1.5rem; }
   header h1 { font-size: 2.5rem; }
   nav ul { gap: 1.25rem; }
-  main { max-width: 64rem; }    
 }
